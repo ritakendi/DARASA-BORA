@@ -18,24 +18,32 @@
         <table>
 
             <head>
-                <tr>
-                    <th colspan="100%" class="table-title">
-                        <h2> Today's Attendance </h2>
-                    </th>
-                </tr>
-                <tr>
-                    <th>S No</th>
-                    <th>Name</th>
-                    <th>Course Name</th>
-                    <th>Time</th>
-                </tr>
+                <form action="{{ url_for('home') }}" method="post">
+                    <tr>
+                        <th colspan="100%" class="table-title">
+                            <h2> Today's Attendance </h2>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Student_No</th>
+                        <th>Name</th>
+                        <th>Course Name</th>
+                        <th>Time</th>
+                    </tr>
+                </form>
             </head>
             <col>
 
             </col>
+            {% for record in records %}
+            <tr>
+                <td>{{record.student_no}}</td>
+                <td>{{record.name}}</td>
+                <td>{{record.course_name}}</td>
+                <td>{{record.time}}</td>
+            </tr>
+            {% endfor %}
         </table>
-
-
     </div>
 </body>
 

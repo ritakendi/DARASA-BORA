@@ -29,14 +29,15 @@ a {
 
 .login-wrap {
     width: 50%;
-    margin: auto;
+    margin-bottom: 10%;
     max-width: 500px;
     min-height: 670px;
     float: right;
-    right: 0px;
+    padding-bottom: 1000px;
+    right: 10px;
 
     position: relative;
-    background: url(../images/login.png) no-repeat center;
+    background: url(../images/background.jpeg) no-repeat center;
     /* box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19); */
 }
 
@@ -226,4 +227,16 @@ body {
     padding-left: 0%;
 
 
+
+}
+
+.webcam_container {
+    width: 400px;
+    height: 300px;
+    border: 1px solid #ccc;
+    /* margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 20px; */
 }

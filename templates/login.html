@@ -27,8 +27,55 @@
                 In</label>
             <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
             <div class="login-form">
-                <div class="sign-in-htm">
-                    <form action="{{ url_for('signin') }}" method="post">
+                <div class="sign-in-html">
+                    <!-- <form action="{{ url_for('signin') }}" method="post"> -->
+                    <div class="group">
+                        <label for="user" class="label">Username</label>
+                        <input id="user_signin" name="user" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input id="pass_signin" name="pass" type="password" class="input" data-type="password">
+                    </div>
+                    <!-- Container for webcam  -->
+                    <video class="webcam_container" id="webcam-container">
+
+                    </video>
+                    <!-- button to capture the webcam photo/video -->
+
+                    <!-- <button id="capture-button">capture</button> -->
+
+
+                    <script src="static/js/webcam.js"></script>
+
+                    <div class="group">
+                        <input id="check" type="checkbox" class="check" checked>
+                        <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" id="signin" value="Sign In">
+
+                    </div>
+                    <div class="flashes">
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        {% for message in messages %}
+                        {{ message }}
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+
+
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <a href="#forgot">Forgot Password?</a>
+                        <!-- </form> -->
+
+                    </div>
+                </div>
+                <div class="sign-up-htm">
+                    <form action="{{ url_for('signup') }}" method="post" enctype="multipart/form-data">
                         <div class="group">
                             <label for="user" class="label">Username</label>
                             <input id="user" name="user" type="text" class="input">
@@ -38,56 +85,39 @@
                             <input id="pass" name="pass" type="password" class="input" data-type="password">
                         </div>
                         <div class="group">
-                            <input id="check" type="checkbox" class="check" checked>
-                            <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                            <label for="pass" class="label">Repeat Password</label>
+                            <input id="pass" name="repeat_pass" type="password" class="input" data-type="password">
                         </div>
                         <div class="group">
-                            <input type="submit" class="button" value="Sign In">
+                            <label for="pass" class="label">Email Address</label>
+                            <input id="email" type="text" name="email" class="input">
                         </div>
-                        <div class="flashes">
-                            {% with messages = get_flashed_messages() %}
-                            {% if messages %}
-                            {% for message in messages %}
-                            {{ message }}
-                            {% endfor %}
-                            {% endif %}
-                            {% endwith %}
+                        <div class="group">
+                            <label for="pass" class="label">Student_No</label>
+                            <input id="Student_No" type="text" name="Student_No" class="input">
                         </div>
-                        <div class="hr"></div>
-                        <div class="foot-lnk">
-                            <a href="#forgot">Forgot Password?</a>
+                        <div class="group">
+                            <label for="pass" class="label">Course Name</label>
+                            <input id="Course Name" type="text" name="Course Name" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">Name</label>
+                            <input id="Name" type="text" name="Name" class="input">
+                            <div class="group">
+                                <label for="photo" class="label" accept="image/*">Photo</label>
+                                <input id="photo" type="file" name="photo" class="input">
+                            </div>
+                            <div class="group">
+                                <input type="submit" class="button" value="Sign Up">
+                            </div>
+                            <div class="hr"></div>
+                            <div class="foot-lnk">
+                                <label for="tab-1">Already Member?</a>
+                            </div>
                     </form>
                 </div>
             </div>
-            <div class="sign-up-htm">
-                <form action="{{ url_for('signup') }}" method="post">
-                    <div class="group">
-                        <label for="user" class="label">Username</label>
-                        <input id="user" name="user" type="text" class="input">
-                    </div>
-                    <div class="group">
-                        <label for="pass" class="label">Password</label>
-                        <input id="pass" name="pass" type="password" class="input" data-type="password">
-                    </div>
-                    <div class="group">
-                        <label for="pass" class="label">Repeat Password</label>
-                        <input id="pass" name="repeat_pass" type="password" class="input" data-type="password">
-                    </div>
-                    <div class="group">
-                        <label for="pass" class="label">Email Address</label>
-                        <input id="email" type="text" name="email" class="input">
-                    </div>
-                    <div class="group">
-                        <input type="submit" class="button" value="Sign Up">
-                    </div>
-                    <div class="hr"></div>
-                    <div class="foot-lnk">
-                        <label for="tab-1">Already Member?</a>
-                    </div>
-                </form>
-            </div>
         </div>
-    </div>
     </div>
 
 </body>
