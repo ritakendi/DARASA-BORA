@@ -7,7 +7,7 @@ import numpy as np
 import sys
 from datetime import datetime
 import sqlite3
-from deepface import DeepFace
+# from deepface import DeepFace
 
 # setting up our application
 app = Flask(__name__)
@@ -84,10 +84,10 @@ def signin():
         database_photo = cur.fetchone()[0]
         with open("./tmp/user_tmp.png", "wb") as fp:
             fp.write(database_photo)
-        df_verification = DeepFace.verify(
-            "./tmp/user_tmp.png", user_photo)
+        # df_verification = DeepFace.verify(
+        #     "./tmp/user_tmp.png", user_photo)
 
-        print(df_verification)
+        # print(df_verification)
 
         if check_if_user_exists(username, password):
             flash('Login successful')
