@@ -1,6 +1,10 @@
 # from deepface import DeepFace
 from flask import Flask, render_template, request, redirect, url_for, flash
+import base64
+import os
 import csv
+import numpy as np
+import sys
 from datetime import datetime
 import sqlite3
 from deepface import DeepFace
@@ -65,11 +69,25 @@ def signup():
 def signin():
     error = None
     if request.method == "POST":
+        # with open("test.log", "w") as sys.stdout:
+        print("Sign in request")
         user_data = request.json
-        print(user_data)
+        # print(user_data)
         username = user_data["username"]
         password = user_data["password"]
         user_photo = user_data["user_photo"]
+
+        conn = sqlite3.connect('database.db')
+        cur = conn.cursor()
+        cur.execute('SELECT photo FROM users WHERE username=:NAME',
+                    {'NAME': username})
+        database_photo = cur.fetchone()[0]
+        with open("./tmp/user_tmp.png", "wb") as fp:
+            fp.write(database_photo)
+        df_verification = DeepFace.verify(
+            "./tmp/user_tmp.png", user_photo)
+
+        print(df_verification)
 
         if check_if_user_exists(username, password):
             flash('Login successful')

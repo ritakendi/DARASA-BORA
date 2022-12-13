@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', e => {
                         })
                     })
                         .then(response => response.json())
-                        .then(response => console.log(JSON.stringify(response)))
+                        .then(response => console.log(response.image))
 
 
 
